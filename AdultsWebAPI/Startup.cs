@@ -28,6 +28,7 @@ namespace AdultsWebAPI
         {
             services.AddControllers();
             services.AddScoped<IFamilyManager, FamilyManager>();
+            services.AddScoped<IUserService, InMemoryUserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
