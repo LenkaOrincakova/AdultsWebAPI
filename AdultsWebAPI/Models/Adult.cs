@@ -13,7 +13,7 @@ namespace AdultsWebAPI.Models
     {
         [JsonPropertyName("jobTitle")]
         public string JobTitle { get; set; }
-        [JsonPropertyName("id")]
+        [JsonPropertyName("id"), Key]
         public int Id { get; set; }
         [NotNull]
         [JsonPropertyName("firstName")]

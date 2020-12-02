@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AdultsWebAPI.Data;
+using AdultsWebAPI.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,8 +28,9 @@ namespace AdultsWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IFamilyManager, FamilyManager>();
-            services.AddScoped<IUserService, InMemoryUserService>();
+            services.AddDbContext<AdultsDBContext>();
+            services.AddScoped<IFamilyManager, SqliteAdultService>();
+            services.AddScoped<IUserService, SqliteUserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
